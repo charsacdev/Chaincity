@@ -1,0 +1,56 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\ReservationTable;
+use App\Models\PropertyTable;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ExpiredProperty;
+use App\Models\UsersTable;
+use App\Models\notifications;
+
+class ExpireListing extends Controller
+{
+    #expire plans
+    public function expirePlans(){
+        $expireReservation=ReservationTable::where(['end_date'=>Carbon::now()->format('m/d/Y')])->update([
+           'status'=>'completed'
+        ]);   
+        if($expireReservation){
+             echo "Reseveration expired";
+
+             #update property avaliable
+             $selectProperty=ReservationTable::where(['end_date'=>Carbon::now()->format('m/d/Y'),'status'=>'ongoing'])->get();
+             foreach($selectProperty as $property){
+
+                $updateProperty=PropertyTable::where(['id'=>$property->property_id])->update([
+                    'property_process->status'=>'approved'
+                ]);
+
+                 #insert into notification
+                notifications::create([
+                    'user_id'=>$property->user_id,
+                    'receiver_id'=>'',
+                    'notification_type'=>'Reservation Expired',
+                    'title'=>'',
+                    'message'=>'Hello we want to inform you that your Reservation have expired you can make new reservation thanks.',
+                    'read'=>''
+                ]);
+
+                #user details
+                $userDetails=UsersTable::where('id',$property->user_id)->first();
+                #send email here
+                $useremail=$userDetails->email;
+                $UserName=$userDetails->first_name;
+                Mail::to($useremail)->send(new ExpiredProperty($useremail,$UserName));
+             }
+              
+        } 
+        else{
+            echo "Reservation not due";
+            echo Carbon::now()->format('m/d/Y');
+        }    
+    }
+}

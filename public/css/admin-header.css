@@ -1,0 +1,134 @@
+/*=======================ADMIN CSS==============================*/
+
+.admin-header{
+    border:0px solid green
+}
+
+/*-----Menu Listing study---*/
+.admin-header div {
+    border:0px solid green
+}
+
+.admin-header div section ul li img{
+    width:70px;
+    height:40px;
+}
+
+.admin-header div section>ul li button{
+    width:100%;
+    height:60px;
+    border-radius:9px;
+    text-align: left;
+    padding:0px 4px;
+    margin:5px 0px;
+    background-color: #FFF1F6;;
+    color:#756f6f;
+    border:0px;
+}
+
+.admin-header div section ul li button:hover{
+    background-color:#D80450;
+    color:#fff
+}
+
+.admin-header div section ul li button>img{
+    width:30px !important;
+    height:30px !important;
+}
+
+/*---menu bar---*/
+.menu-bar{
+    height:100vh;
+    overflow:auto;
+    scrollbar-width: 0px !important;
+    border:0px solid green;
+    background-color:#FFF1F6;
+    border-radius:0px 35px 35px 0px;
+    position:sticky;
+    top:0px;
+}
+
+/*--media nav ul--*/
+.media-nav{
+    border:0px solid green
+}
+
+.media-nav li button{
+    width:100% !important;
+    height:60px;
+    border-radius:9px;
+    text-align: left;
+    padding:0px 4px;
+    margin:5px 0px;
+    background-color: #FFF1F6;;
+    color:#756f6f;
+    border:0px;
+}
+
+.media-nav li button:hover{
+    background-color:#D80450;
+    color:#fff
+}
+
+/*--nav head---*/
+.nav-head{
+    border:0px solid green
+}
+
+.nav-head div{
+    height:auto !important;
+}
+
+.user-profile{
+    width:100% !important;
+    height:auto;
+    border:0px solid green !important;
+}
+
+.header-container-admin{
+    background-color:#fff;
+}
+
+
+/*---dashboard content----*/
+.dashboard-content{
+    border:0px solid green !important
+}
+
+.dashboard-content section aside{
+    border:0px solid green;
+    height:120px;
+    margin:15px 0px;
+}
+
+.dashboard-content section aside>div{
+    height:100% !important;
+    border:0px solid yellow;
+    padding:15px 20px;
+    box-sizing: border-box;
+    background: #2F80ED14;
+    border-radius:9px;
+    
+}
+
+.dashboard-content section aside>div p{
+    font-size:12px;
+    margin-top:10px;
+}
+
+.icon-img-article{
+    border-radius:50%;
+    border:0px solid green;
+    width:50px;
+    height:50px;
+    background-color: #D80450;
+    padding:10px 15px;
+    box-sizing: border-box;
+    margin:15px 5px;
+}
+
+/*---listing table----*/
+.drop-action{
+    width:100px !important;
+    background-color: #fff !important;
+}
